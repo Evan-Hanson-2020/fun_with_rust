@@ -46,4 +46,30 @@ fn main() {
     //the following is not allowed after redeclaring variable to immutable.
     //z -= 1;
     //println!("The value of z is: {z}");
+
+    //Interger Literals
+    // There are signed and unsigned variables.
+    // (Signed are for positive and negatives, unsigned are for positives)
+    // When interger overflow happens, wrapping happens if built.
+    // Modulo is applied to the overflowing value.
+
+    // Tupple
+    println!("SECTION FOR TUPPLE");
+    let tup: (i32, f64, u16) = (-420, 6.9, 420);
+
+    // mutable tupple
+    let (mut x, mut y, mut z) = tup;
+    //let (x, y, z) = tup;
+
+    println!("The value of x is: {x}");
+    println!("The value of y is: {y}");
+    println!("The value of z is: {z}");
+
+    x += 1;
+    y += 1.0;
+    z += 1;
+
+    println!("The value of x is: {x}");
+    println!("The value of y is: {y}");
+    println!("The value of z is: {z}");
 }
