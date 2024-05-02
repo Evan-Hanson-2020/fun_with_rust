@@ -1,3 +1,5 @@
+use std::io::{self, Write};
+
 fn main() {
     // immutable variable
     let x = 10;
@@ -59,7 +61,7 @@ fn main() {
 
     // mutable tupple
     let (mut x, mut y, mut z) = tup;
-    //let (x, y, z) = tup;
+    // let (x, y, z) = tup;
 
     println!("The value of x is: {x}");
     println!("The value of y is: {y}");
@@ -72,4 +74,39 @@ fn main() {
     println!("The value of x is: {x}");
     println!("The value of y is: {y}");
     println!("The value of z is: {z}");
+
+    // Select tupple at index
+    let a: (i64, f64, u16) = (400, 6.9, 32);
+
+    let four_hundred = a.0;
+    let six_point_nine = a.1;
+    let thirty_two = a.2;
+
+    println!("{four_hundred}, {six_point_nine}, {thirty_two}");
+
+    let b: [i32; 5] = [11, 22, 33, 44, 55];
+
+    let c = [3; 5];
+
+    // print array
+    println!("{:?}", b);
+
+    // expanded print
+    println!("{:#?}", c);
+
+    let mut string_input = String::new();
+
+    //flushing helps with determining where to start reading line
+    print!("Enter a value between [0,4]: ");
+    let _ = io::stdout().flush();
+    io::stdin()
+        .read_line(&mut string_input)
+        .expect("Failed to read line");
+
+    let input: usize = string_input
+        .trim()
+        .parse()
+        .expect("Index entered is not a number");
+
+    println!("Found Value: {:?}", b[input]);
 }
