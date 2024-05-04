@@ -1,3 +1,4 @@
+use rand::prelude::*;
 use std::io::{self, Write};
 
 fn main() {
@@ -83,6 +84,15 @@ fn main() {
     let thirty_two = a.2;
 
     println!("{four_hundred}, {six_point_nine}, {thirty_two}");
+
+    // Calling function with random param
+    //holy_function(rand::random::<i32>());
+    holy_function(rand::thread_rng().gen_range(0..100));
+}
+
+fn holy_function(x: i32) {
+    println!("HOLY FUNCTION");
+    println!("The function is given a param x with value: {x}");
 
     let b: [i32; 5] = [11, 22, 33, 44, 55];
 
