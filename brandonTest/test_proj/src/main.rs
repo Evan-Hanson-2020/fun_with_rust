@@ -87,7 +87,14 @@ fn main() {
 
     // Calling function with random param
     //holy_function(rand::random::<i32>());
-    holy_function(rand::thread_rng().gen_range(0..100));
+
+    // commenting out for convinence.
+    //holy_function(rand::thread_rng().gen_range(0..100));
+    holy_function_2();
+
+    // getting returns from function, returned variable with type i32
+    let fn_return = first_function_return();
+    println!("The returned value from function call: {fn_return}");
 }
 
 fn holy_function(x: i32) {
@@ -119,4 +126,31 @@ fn holy_function(x: i32) {
         .expect("Index entered is not a number");
 
     println!("Found Value: {:?}", b[input]);
+}
+
+fn holy_function_2() {
+    let x = {
+        let y = 6;
+
+        println!("The value of y: {y}");
+
+        // this returns the value y+1 when there are no semicolon at the end
+        y + 1
+    };
+
+    println!("The value of x: {x}");
+
+    // experimenting with return
+    let z = {
+        // Note we are not able to just return a variable that is just declared.
+        // ie: let zz = 10 (without semicolon)
+        let zz = 10;
+        zz
+    };
+
+    println!("The value of z: {z}");
+}
+
+fn first_function_return() -> i32 {
+    64
 }
