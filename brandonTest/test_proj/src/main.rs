@@ -95,6 +95,19 @@ fn main() {
     // getting returns from function, returned variable with type i32
     let fn_return = first_function_return();
     println!("The returned value from function call: {fn_return}");
+
+    // if statements can be used right side of let statement
+    let condition = true;
+    // both variabled when attempting to do if else must return the same type
+    // The following will throw errors
+    //let chosen_one = if condition { 420 } else { "I AM A STRING" };
+    let chosen_one = if condition { 420 } else { 69 };
+
+    println!("Chosen one is: {chosen_one}");
+
+    println!("\n\n\n\nSECTION ABOUT LOOP");
+    looping_function();
+    while_function();
 }
 
 fn holy_function(x: i32) {
@@ -153,4 +166,31 @@ fn holy_function_2() {
 
 fn first_function_return() -> i32 {
     64
+}
+
+fn looping_function() {
+    println!("Loop function called");
+    let mut counter = 0;
+    let result = loop {
+        if counter == 10 {
+            println!("Counter reached 10. Breaking...");
+            break counter;
+        }
+
+        counter += 1;
+        println!("Increment counter: {counter}");
+    };
+    println!("Loop result: {result}");
+}
+
+fn while_function() {
+    println!("While function called");
+    let mut counter = 0;
+    // cannot use break in a while loop
+    while counter < 10 {
+        counter += 1;
+        println!("Increment counter: {counter}");
+    }
+
+    println!("Counter: {counter}");
 }
